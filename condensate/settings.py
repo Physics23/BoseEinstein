@@ -30,12 +30,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
+SECRET_KEY = os.getenv('SECRET_KEY', 'temporary-dev-key-for-deployment')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-development-key')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 #ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['bose-8351155f5555.herokuapp.com', 'localhost', '127.0.0.1']
