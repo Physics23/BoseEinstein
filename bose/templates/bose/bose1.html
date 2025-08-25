@@ -1,0 +1,47 @@
+
+{% extends 'bose/base.html' %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">BEC Simulator</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Simulation Parameters</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form">
+                        {% csrf_token %}
+                        
+                        <!-- Manual form rendering (no bootstrap5) -->
+                        <div class="mb-3">
+                            <label for="id_alpha" class="form-label">Tilt Strength (α)</label>
+                            {{ form.alpha }}
+                            <div class="form-text">How much the BEC is tilted (like gravity)</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_g" class="form-label">Interaction Strength (g)</label>
+                            {{ form.g }}
+                            <div class="form-text">How strongly atoms push each other</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_mu" class="form-label">Chemical Potential (μ)</label>
+                            {{ form.mu }}
+                            <div class="form-text">Energy cost to add an atom</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success w-100 mt-3">
+                            🚀 Run Simulation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

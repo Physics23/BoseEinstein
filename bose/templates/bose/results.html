@@ -1,0 +1,65 @@
+{% extends 'bose/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">BEC Simulation Results</h1>
+    
+    <div class="card shadow mb-4">
+        <div class="card-body text-center">
+            <img src="data:image/png;base64,{{ plot }}" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Simulation Parameters</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Tilt (α):</strong><br>
+                            <span class="text-primary">{{ alpha }}</span>
+                        </div>
+                        <div class="col-6">
+                            <strong>Interactions (g):</strong><br>
+                            <span class="text-success">{{ g }}</span>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <strong>Chemical Potential (μ):</strong><br>
+                            <span class="text-danger">{{ mu }}</span>
+                        </div>
+                        <div class="col-6">
+                            <strong>Peak Density (n₀):</strong><br>
+                            <span class="text-warning">{{ n0 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Physical Interpretation</h5>
+                </div>
+                <div class="card-body">
+                    <small>
+                        <strong>Wave Function</strong>: Quantum amplitude of condensate<br>
+                        <strong>Density</strong>: Probability |ψ|² of finding atoms<br>
+                        <strong>Bogoliubov Spectrum</strong>: Energy of quantum excitations<br>
+                        <strong>Phase</strong>: Quantum coherence information
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary btn-lg">🔄 Run New Simulation</a>
+    </div>
+</div>
+{% endblock %}
